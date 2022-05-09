@@ -13,7 +13,6 @@ public class Game implements Subject {
 	private String homeTeam;
 	private int homeScore = 0;
 	private int awayScore = 0;
-	private int quarters = 4;
 	private int currQuarter;
 	private int quarterLength;
 	private ArrayList<Observer> observerList;
@@ -22,21 +21,22 @@ public class Game implements Subject {
 	public Game(String homeTeam, String awayTeam, int quarterLength) {
 		this.homeTeam = homeTeam;
 		this.awayTeam = awayTeam;
+		this.quarterLength = quarterLength;
 		observerList  = new ArrayList<Observer>();
 	}
 	
 	public void startGame() {
-		for(int q = 0; q < 4; q++) {
+		for(int q = 1; q < 5; q++) {
 			currQuarter = q;
-			homeScore = createScore(q);
-			awayScore = createScore(q);
+			homeScore += createScore(q);
+			awayScore += createScore(q);
 			notifyObservers();
 		}
 	}
 
 	private int createScore(int q) {
 		
-		return (int) rand.nextInt(24) * q;
+		return (int) rand.nextInt(10 - q) * q;
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class Game implements Subject {
 	public void notifyObservers() {
 		for (Iterator<Observer> iter = observerList.iterator(); iter.hasNext();) {
 			Observer observer = iter.next();
-			observer.update(int currQuarter, int homeScore, int awayScore);
+			observer.update(currQuarter, homeScore, awayScore);
 		}
 
 	}
