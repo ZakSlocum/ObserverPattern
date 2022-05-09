@@ -36,7 +36,7 @@ public class Game implements Subject {
 
 	private int createScore(int q) {
 		
-		return (int) rand.nextInt(10 - q) * q;
+		return (int) rand.nextInt(10) * q;
 	}
 
 	@Override

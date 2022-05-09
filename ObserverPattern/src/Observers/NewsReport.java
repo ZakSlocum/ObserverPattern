@@ -24,9 +24,9 @@ public class NewsReport implements Observer {
 		if(currQuarter >= 4) {
 			System.out.println("BREAKING NEWS\n");
 			if(homeScore > awayScore) {
-				System.out.println("--- " + homeTeam + " snags the win from " + awayTeam + ", really showing that home advantage! ---");
+				System.out.println(homeTeam + " snags the win from " + awayTeam + " by " + (homeScore - awayScore) +" points, really showing that home advantage!");
 			} else {
-				System.out.println(awayTeam + " secures victory against " + homeTeam + ", shutting them down on their home turf!");
+				System.out.println(awayTeam + " secures victory against " + homeTeam + " by " + (awayScore - homeScore) +" points, shutting them down on their home turf!");
 			}
 		}
 

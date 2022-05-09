@@ -28,7 +28,7 @@ public class Predictor implements Observer {
 		this.currQuarter = quarter;
 		
 		
-		if(!(currQuarter < 4)) {
+		if(currQuarter < 4) {
 			homePrediction = homeScore + random.nextInt(10 - 2 * currQuarter) * currQuarter;
 			awayPrediction = awayScore + random.nextInt(10 - 2 * currQuarter) * currQuarter;
 
@@ -45,7 +45,7 @@ public class Predictor implements Observer {
 					+ homeTeam + ": " + homePrediction +"\n"
 					+ awayTeam + ": " + awayPrediction +"\n");
 			
-			System.out.println("Correct Predictions: " + correctGuesses);
+			System.out.println("Correct Predictions: " + correctGuesses +"\n");
 		}
 		
 	}
